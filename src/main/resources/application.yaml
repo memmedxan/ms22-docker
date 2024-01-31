@@ -1,0 +1,18 @@
+spring:
+  datasource:
+    username: postgres
+    password: xan
+    url: jdbc:postgresql://localhost:5432/ingress
+    driver-class-name: org.postgresql.Driver
+    hikari:
+        auto-commit: false
+        connection-timeout: 20000
+        idle-timeout: 60000
+        max-lifetime: 120000
+        minimum-idle: 4
+        maximum-pool-size: 20
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+
