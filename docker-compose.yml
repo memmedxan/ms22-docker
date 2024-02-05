@@ -11,3 +11,16 @@ services:
       - POSTGRES_PASSWORD=xan
       - POSTGRES_USER=postgres
       - POSTGRES_DB=database
+    restart: always
+  myapp:
+    image: memmedxan/demoapp:v1
+    ports:
+      - 8087:8087
+    depends_on:
+      - postgres
+  portainer:
+    image: portainer/portainer-ce
+    ports:
+      - 9000:9000
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
