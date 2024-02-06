@@ -1,8 +1,22 @@
+import com.bmuschko.gradle.docker.tasks.image.DockerBuildImage
+import com.bmuschko.gradle.docker.tasks.image.DockerPushImage
+import com.bmuschko.gradle.docker.tasks.image.Dockerfile
+
 plugins {
     id 'java'
     id 'org.springframework.boot' version '3.2.2'
     id 'io.spring.dependency-management' version '1.1.4'
+    id 'com.bmuschko.docker-remote-api' version '6.6.1' apply false
 }
+allprojects{
+
+    apply plugin: 'java'
+    apply plugin: 'com.bmuschko.docker-remote-api'
+
+
+}
+
+
 
 group = 'com.example'
 version = '0.0.1-SNAPSHOT'
@@ -34,4 +48,40 @@ dependencies {
 
 tasks.named('test') {
     useJUnitPlatform()
+}
+
+//task testPrint {
+//    println "${project.name}"
+//    println "${project.version}"
+//
+//    description "name and version print"
+//
+//}
+
+
+task dockerFile(type: Dockerfile, dependsOn: assemble) {
+    destFile.set(project.file('Dockerfile'))
+    from "openjdk:17"
+//    runCommand 'apk add --no-cache openjdk17'
+//    runCommand 'apk add --no-cache tzdata'
+    copyFile "build/libs/${project.name}-${project.version}.jar", '/app/'
+//    workingDir '/app/'
+    entryPoint 'java'
+    defaultCommand '-jar', "/app/${project.name}-${project.version}.jar"
+
+}
+
+task dockerBuild(dependsOn: dockerFile, type: Exec) {
+//    inputDir.set(file("$projectDir/."))
+//    doLast {
+//            println("creating image: memmedxan/${project.name}:$version")
+//    }
+//    images.add("memmedxan/${project.name}:$version")
+    println "${project.name}:${version}"
+    commandLine "docker", "build", ".", "-t", "memmedxan/${project.name}:${project.version}"
+}
+
+task dockerPush(dependsOn: dockerBuild, type: Exec) {
+    commandLine "docker", "push", "memmedxan/${project.name}:${project.version}"
+    println "memmedxan/${project.name}:${project.version}"
 }
