@@ -1,0 +1,14 @@
+<!--<databaseChangeLog>-->
+<!--    <changeSet id="2024-02-10-03" author="coder3">-->
+<!--        <changes>-->
+<!--            <insert tableName="students">-->
+<!--                <columns>-->
+<!--                    <column name="name" value="Elsen"/>-->
+<!--                    <column name="surname" value="Eliyev"/>-->
+<!--                    <column name="color" value="white"/>-->
+<!--                    <column name="scholarship" value="21.6"/>-->
+<!--                </columns>-->
+<!--            </insert>-->
+<!--        </changes>-->
+<!--    </changeSet>-->
+<!--</databaseChangeLog>-->

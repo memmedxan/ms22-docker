@@ -1,0 +1,36 @@
+databaseChangeLog:
+  - changeSet:
+      id: 2024-02-10-01
+      author: coder
+      changes:
+        - createTable:
+            tableName: students
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+                  autoIncrement: true
+              - column:
+                  name: student_number
+                  type: VARCHAR
+              - column:
+                  name: name
+                  type: VARCHAR
+              - column:
+                  name: surname
+                  type: VARCHAR
+              - column:
+                  name: group_number
+                  type: VARCHAR
+              - column:
+                  name: scholarship
+                  type: DECIMAL
+              - column:
+                  name: major
+                  type: VARCHAR
+              - column:
+                  name: color
+                  type: VARCHAR

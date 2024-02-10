@@ -29,6 +29,7 @@ public class StudentEntity {
     @Column(name = "scholarship")
     private BigDecimal scholarShip;
     private String major;
+    private String color;
 
 
 }

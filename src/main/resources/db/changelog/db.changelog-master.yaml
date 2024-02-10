@@ -1,0 +1,19 @@
+databaseChangeLog:
+  - includeAll:
+        path: db/changelog/v1/2024/
+#  - includeAll:
+#      path: db/changelog/v2/
+
+#databaseChangeLog:
+#  - include:
+#      file: v1/2024/2024-02-10-01-create-card-table.yaml
+#      relativeToChangelogFile: true
+#  - include:
+#      file: v1/2024/2024-02-10-02-insert-color-column.yaml
+#      relativeToChangelogFile: true
+#  - include:
+#      file: v1/2024/2024-02-10-03-insert-01-student.yaml
+#      relativeToChangelogFile: true
+#  - include:
+#      file: v2/2024/2024-02-10-04-insert-02-student.xml
+#      relativeToChangelogFile: true

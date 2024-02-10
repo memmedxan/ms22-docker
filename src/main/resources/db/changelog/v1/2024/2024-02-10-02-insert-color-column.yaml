@@ -1,0 +1,11 @@
+databaseChangeLog:
+  - changeSet:
+      id: 2024-02-10-01
+      author: coder
+      changes:
+        - update:
+            tableName: students
+            columns:
+              - column:
+                  name: color
+                  type: VARCHAR
